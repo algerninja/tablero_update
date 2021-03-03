@@ -1,0 +1,14 @@
+flask_script
+flask_mail
+flask_login
+flask_pymongo
+flask_bootstrap
+flask_moment
+flask_wtf
+email_validator
+dash
+dash_bootstrap_components
+dash_daq
+pandas
+numpy
+Flask-Bootstrap4

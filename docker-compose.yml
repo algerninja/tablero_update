@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  dash:
+    container_name: test1_flask
+    restart: always
+    build: ./tablero-update
+    ports:
+      - "8000:8000"
+
+    command: gunicorn -w 1 -b :8000 manager:app
+
+
+  nginx:
+    container_name: nginx2
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - dash
+
+  mongodb:
+    image: mongo:4.4.4-bionic
+    
+    volumes:
+      - /home/data/db:/data/db
+      - ./python_test:/data/python_test
+    
+    ports:
+      - "27030:27017"
