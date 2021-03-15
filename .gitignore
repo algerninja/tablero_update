@@ -1,7 +1,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+/tablero-update/Test_jupyter/*
 env
 .env
 venv

@@ -8,7 +8,7 @@ from ..models import User
 from flask import session
 
 
-@auth.route('/login', methods=['GET','POST'])
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
 
     form = LoginForm()
@@ -17,19 +17,20 @@ def login():
 
         remember = True if form.remember_me.data else False
 
-        user =  User(email = form.email.data, password= form.password.data)
+        user = User(email=form.email.data, password=form.password.data)
 
         if not user.check_password():
             flash('Please check your login-password details and try again.')
-            return jsonify({'Error':'Usuario Incorrecto'})
+            return jsonify({'Error': 'Usuario Incorrecto'})
 
         login_user(user, remember=remember)
 
         session['username'] = current_user._id
 
-        return  redirect(url_for('main.home'))
+        return redirect(url_for('main.home'))
 
-    return render_template('login.html', form = form)
+    return render_template('login.html', form=form)
+
 
 @auth.route('/logout', methods=['GET'])
 @login_required
@@ -42,4 +43,4 @@ def logout():
 @auth.before_app_request
 def before_request():
     if not current_user.is_authenticated and request.endpoint[:5] != 'auth.':
-        return jsonify({'mensaje':'Logeate'})
+        return jsonify({'mensaje': 'Logeate'})

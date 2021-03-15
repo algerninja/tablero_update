@@ -1,0 +1,7 @@
+# Nuevo grafico de la categoria del proyecto filtrado atra vez de la institucion
+# despues relog de la institucion
+
+# despues x2 para ver los proyectos de la institucion, que ocntendran el codigo y el nombre del proyecto,
+# y al mostrarlos mostrara solo esa linea del proyecto
+
+# recomendacion usar un lu o li de html para mostrarlo
